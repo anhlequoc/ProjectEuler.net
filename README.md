@@ -1,0 +1,1 @@
+Project is written in javascript, to solve problem on https://projecteuler.net

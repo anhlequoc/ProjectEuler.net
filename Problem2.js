@@ -3,10 +3,31 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of th
 
 var fiboArr = new Array();
-fiboArr[0] = 1;
-fiboArr[1] = 2;
+var sum = 0;
+var i = 0;
 
-function fibonaciNumber (i) {
+//add number to fiboArr
+do {
+	fiboArr.push(fibonaciNumber(i));
+	i++;
+} while (lastArrElement() <= 4000000)
+
+for(var index = 0; index < fiboArr.length-1; index++){ //lấy fiboArr.length-1 vì số cuối cùng của mảng luôn > 4000000)
+	if (fiboArr[index] % 2 == 0) {
+		sum = sum + fiboArr[index];
+	}
+}
+
+function lastArrElement() {
+	if (fiboArr.length == 0) {
+		return 0;
+	} else {
+		var lastIndex = fiboArr.length - 1;
+		return fiboArr[lastIndex];		
+	}
+}
+
+function fibonaciNumber(i) {
 	if (i==0) {
 		return 1;		
 	} else if (i==1) {
@@ -14,10 +35,6 @@ function fibonaciNumber (i) {
 	} else {
 		return fibonaciNumber(i-1) + fibonaciNumber(i-2);
 	}
-}	
-console.log(fibonaciNumber(4));
-
-i = 4; fibonaciNumber(4) = fibonaciNumber(3) + fibonaciNumber(2)
-						= fibonaciNumber(2) + fibonaciNumber(1) + fibonaciNumber(1) + fibonaciNumber(0)
-						= fibonaciNumber(1) + fibonaciNumber(0) + fibonaciNumber(1) + fibonaciNumber(1) + fibonaciNumber(0)
-						= 2 + 1 + 2 + 2 + 1 = 8
+}
+console.log(fiboArr);
+console.log(sum);
